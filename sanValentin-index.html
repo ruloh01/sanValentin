@@ -5,74 +5,181 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>¿Quieres ser mi San Valentín?</title>
     <style>
+        /* Estilos generales */
         body {
             text-align: center;
-            font-family: Arial, sans-serif;
-            margin-top: 50px;
+            font-family: 'Pacifico', cursive; /* Tipografía romántica */
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%); /* Fondo degradado suave */
+            color: #8b0000; /* Color de texto rojo oscuro */
+            overflow: hidden;
         }
+
+        /* Contenedor principal */
         #container {
             position: relative;
-            display: inline-block;
-        }
-        #message {
-            font-size: 24px;
-            margin-bottom: 20px;
-        }
-        #buttons {
             display: flex;
+            flex-direction: column;
+            align-items: center;
             justify-content: center;
-            gap: 20px;
+            height: 100vh; /* Ocupa toda la altura de la pantalla */
         }
+
+        /* Mensaje principal */
+        #message {
+            font-size: 36px;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra suave */
+        }
+
+        /* Contenedor de botones */
+        #button-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        /* Estilos de los botones */
         button {
-            font-size: 18px;
-            padding: 10px 20px;
+            font-size: 20px;
+            padding: 20px 40px;
             border: none;
             cursor: pointer;
             transition: all 0.3s ease;
+            border-radius: 10px; /* Bordes redondeados */
+            font-family: 'Pacifico', cursive; /* Tipografía romántica */
+            flex: 1;
+            margin: 10px;
         }
+
         #yes {
-            background-color: #4CAF50;
+            background-color: #ff6f61; /* Rojo coral */
             color: white;
         }
+
+        #yes:hover {
+            background-color: #ff4a3d; /* Rojo más oscuro al pasar el mouse */
+        }
+
         #no {
-            background-color: #f44336;
-            color: white;
-            position: absolute;
+            background-color: #ffcccb; /* Rosa claro */
+            color: #8b0000; /* Texto rojo oscuro */
         }
+
+        #no:hover {
+            background-color: #ffb6b5; /* Rosa más oscuro al pasar el mouse */
+        }
+
+        /* Contenedor del GIF original */
         #gif-container {
             display: none;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        #gif-container p {
+            font-size: 28px;
+            color: #8b0000; /* Texto rojo oscuro */
+            margin-bottom: 20px;
+        }
+
+        /* Mensaje "Porfis" */
+        #porfis-message {
+            font-size: 24px;
+            color: #8b0000;
+            margin-top: 20px;
+            display: none; /* Oculto inicialmente */
+        }
+
+        /* GIF decorativo en la parte inferior */
+        #decorative-gif {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: auto;
+            z-index: -1; /* Para que no interfiera con los botones */
+        }
+
+        /* Nuevo contenedor para el GIF de éxito */
+        #success-container {
+            display: none;
+            text-align: center;
             margin-top: 20px;
         }
+
+        #success-message {
+            font-size: 36px;
+            color: #8b0000;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Fuente personalizada de Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
     </style>
 </head>
 <body>
     <div id="container">
-        <div id="message">¿Quieres ser mi San Valentín?</div>
-        <div id="buttons">
-            <button id="yes">Sip</button>
-            <button id="no">Nop</button>
+        <div id="message">¿Quieres ser mi San Valentín? 💘</div>
+        <div id="button-container">
+            <button id="yes">¡Sí! 😍</button>
+            <button id="no">No 😢</button>
+        </div>
+        <!-- Mensaje "Porfis" -->
+        <div id="porfis-message">Porfis</div>
+        <div id="gif-container">
+            <p>¡Sabía que dirías que sí! ❤️</p>
+            <img src="https://media.giphy.com/media/3ohs4qV6r6Bo9YBojI/giphy.gif" alt="Feliz">
         </div>
     </div>
-    <div id="gif-container">
-        <p>¡Sabía que dirías que sí! ❤️</p>
-        <img src="https://media.giphy.com/media/3ohs4qV6r6Bo9YBojI/giphy.gif" alt="Feliz">
+    <!-- GIF decorativo en la parte inferior -->
+    <img id="decorative-gif" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGF0d24zY3hlczg0bjg3NWwzMW91bzdnMHdnOG9leWJxM2V2aDU5eiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/dvxq3BtNLK6KEgTryW/giphy.gif" alt="Decoración San Valentín">
+    
+    <!-- Nuevo GIF de éxito -->
+    <div id="success-container">
+        <div id="success-message">¡Sabía que dirías que sí! 💖</div>
+        <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZDZ1ZDgzOWRpaWlrMHdvdnM3dnBzODB4Nm9ybmJjM2YzdnZhNjV2ZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1JmGiBtqTuehfYxuy9/giphy.gif" alt="¡Sí!">
     </div>
+
     <script>
         const yesButton = document.getElementById("yes");
         const noButton = document.getElementById("no");
         const container = document.getElementById("container");
         const gifContainer = document.getElementById("gif-container");
-        
+        const buttonContainer = document.getElementById("button-container");
+        const porfisMessage = document.getElementById("porfis-message");
+        const decorativeGif = document.getElementById("decorative-gif");
+        const successContainer = document.getElementById("success-container");
+        const successMessage = document.getElementById("success-message");
+        let porfisCount = 1; // Contador de "Porfis"
+        let yesSize = 1; // Tamaño inicial de "Sí"
+        let noSize = 1; // Tamaño inicial de "No"
+
         yesButton.addEventListener("click", () => {
-            container.style.display = "none";
-            gifContainer.style.display = "block";
+            container.style.display = "none"; // Ocultar la pantalla original
+            decorativeGif.style.display = "none"; // Ocultar el GIF decorativo
+            successContainer.style.display = "block"; // Mostrar el mensaje y el nuevo GIF
         });
-        
-        noButton.addEventListener("mouseover", () => {
-            noButton.style.position = "absolute";
-            noButton.style.left = Math.random() * (window.innerWidth - 100) + "px";
-            noButton.style.top = Math.random() * (window.innerHeight - 50) + "px";
-            yesButton.style.transform = "scale(1.2)";
+
+        noButton.addEventListener("click", () => {
+            // Incrementar el tamaño de "Sí" y disminuir el tamaño de "No"
+            yesSize += 0.2; // Aumenta un poco el tamaño de "Sí"
+            noSize -= 0.2; // Disminuye un poco el tamaño de "No"
+            
+            // Aplicar los nuevos tamaños
+            yesButton.style.transform = `scale(${yesSize})`;
+            noButton.style.transform = `scale(${noSize})`;
+
+            // Mostrar el mensaje "Porfis" y agregar ",porfis" cada vez
+            porfisMessage.style.display = "block";
+            porfisMessage.textContent = "Porfis" + ",porfis".repeat(porfisCount);
+            porfisCount++;
         });
     </script>
 </body>

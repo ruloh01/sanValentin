@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres ser mi San Valentín?</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 50px;
+        }
+        #container {
+            position: relative;
+            display: inline-block;
+        }
+        #message {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        #buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        #yes {
+            background-color: #4CAF50;
+            color: white;
+        }
+        #no {
+            background-color: #f44336;
+            color: white;
+            position: absolute;
+        }
+        #gif-container {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="message">¿Quieres ser mi San Valentín?</div>
+        <div id="buttons">
+            <button id="yes">Sip</button>
+            <button id="no">Nop</button>
+        </div>
+    </div>
+    <div id="gif-container">
+        <p>¡Sabía que dirías que sí! ❤️</p>
+        <img src="https://media.giphy.com/media/3ohs4qV6r6Bo9YBojI/giphy.gif" alt="Feliz">
+    </div>
+    <script>
+        const yesButton = document.getElementById("yes");
+        const noButton = document.getElementById("no");
+        const container = document.getElementById("container");
+        const gifContainer = document.getElementById("gif-container");
+        
+        yesButton.addEventListener("click", () => {
+            container.style.display = "none";
+            gifContainer.style.display = "block";
+        });
+        
+        noButton.addEventListener("mouseover", () => {
+            noButton.style.position = "absolute";
+            noButton.style.left = Math.random() * (window.innerWidth - 100) + "px";
+            noButton.style.top = Math.random() * (window.innerHeight - 50) + "px";
+            yesButton.style.transform = "scale(1.2)";
+        });
+    </script>
+</body>
+</html>
